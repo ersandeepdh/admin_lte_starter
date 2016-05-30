@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/signup' => 'welcome#signup'
   get '/mechanize' => 'welcome#mechanize'
   post '/send-message' => 'welcome#message'
+  get '/latest-govt-jobs/:permalink' => 'welcome#permalink'  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -53,7 +53,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
               </button>
-              <a href="#" class="navbar-brand">Fill Govt Forms</a>
+              <a href="#" class="navbar-brand">Portfolio</a>
             </div>
             <div id="myNavbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
@@ -69,48 +69,16 @@
           </div>
         </nav>
         <div class="col-sm-3 sidenav">
-          <h4>State Wise Jobs</h4>
+          <h4>John's Blog</h4>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Andaman & Nicobar</a></li>
-            <li><a href="#section2">Andhra Pradesh</a></li>
-            <li><a href="#section3">Arunachal Pradesh</a></li>
-            <li><a href="#section3">Assam</a></li>
-            <li><a href="#section3">Bihar</a></li>
-            <li><a href="#section3">Chandigarh</a></li>
-            <li><a href="#section3">Chhattisgarh</a></li>
-            <li><a href="#section3">Dadra & Nagar Haveli</a></li>
-            <li><a href="#section3">Daman & Diu</a></li>
-            <li><a href="#section3">Delhi</a></li>
-            <li><a href="#section3">Goa</a></li>
-            <li><a href="#section3">Gujarat</a></li>
-            <li><a href="#section3">Haryana</a></li>
-            <li><a href="#section3">Himachal Pradesh</a></li>
-            <li><a href="#section3">Jammu & Kashmir</a></li>
-            <li><a href="#section3">Jharkhand</a></li>
-            <li><a href="#section3">Karnataka</a></li>
-            <li><a href="#section3">Kerala</a></li>
-            <li><a href="#section3">Lakshadweep</a></li>
-            <li><a href="#section3">Madhya Pradesh</a></li>
-            <li><a href="#section3">Maharashtra</a></li>
-            <li><a href="#section3">Manipur</a></li>
-            <li><a href="#section3">Meghalaya</a></li>
-            <li><a href="#section3">Mizoram</a></li>
-            <li><a href="#section3">Nagaland</a></li>
-            <li><a href="#section3">Orissa</a></li>
-            <li><a href="#section3">Puducherry</a></li>
-            <li><a href="#section3">Punjab</a></li>
-            <li><a href="#section3">Rajasthan</a></li>
-            <li><a href="#section3">Sikkim</a></li>
-            <li><a href="#section3">Tamil Nadu</a></li>
-            <li><a href="#section3">Telangana</a></li>
-            <li><a href="#section3">Tripura</a></li>
-            <li><a href="#section3">Uttar Pradesh</a></li>
-            <li><a href="#section3">Uttarakhand</a></li>
-            <li><a href="#section3">West Bengal</a></li>            
+            <li class="active"><a href="#section1">Home</a></li>
+            <li><a href="#section2">Friends</a></li>
+            <li><a href="#section3">Family</a></li>
+            <li><a href="#section3">Photos</a></li>
           </ul>
           <br>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Job..">
+            <input type="text" class="form-control" placeholder="Search Blog..">
             <span class="input-group-btn">
             <button class="btn btn-default" type="button">
             <span class="glyphicon glyphicon-search"></span>
@@ -121,11 +89,11 @@
         <div class="col-sm-9 content_cls">
           <h4><small>LATEST GOVT JOBS</small></h4>
           <hr>
-          <% indx = 0 %>
-          <% @one_page_post.each do |key,value| %>
-          <% if !@one_page_post["title=#{indx}"].nil? %>
-          <h4><a href="/latest-govt-jobs/<%=@one_page_post["permalink=#{indx}"]%>"><%= @one_page_post["title=#{indx}"] %></a></h4>
-          <h5><span class="glyphicon glyphicon-time"></span> Post by Mechanize, <%= @one_page_post["time=#{indx}"].squish %></h5>
+          <%# indx = 0 %>
+          <%# @one_page_post.each do |key,value| %>
+          <%# if !@one_page_post["title=#{indx}"].nil? %>
+          <h3><b><%= @one_page_post["title"] %></b></h3>
+          <h5><span class="glyphicon glyphicon-time"></span> Post by Mechanize. <%#= @one_page_post["time=#{indx}"].squish %></h5>
           <h5>
             <span class="label label-warning">LATEST</span>
             <span class="label label-success">GOVERNMENT</span>
@@ -135,13 +103,13 @@
               <span class="label label-danger">Danger Label</span> -->
           </h5>
           <br>
-          <p><%= @one_page_post["content=#{indx}"].gsub(" ...Read More", "") %>, <%= @one_page_post["title=#{indx}"] %></p>
+          <p><%#= @one_page_post["content=#{indx}"].gsub(" ...Read More", "") %> <%= @one_page_post["content"] %></p>
           <br>
-          <% indx = indx.to_i + 1 %>
-          <% else %>
-          <% indx = indx.to_i + 1 %>
-          <% end %>
-          <% end %>
+          <%# indx = indx.to_i + 1 %>
+          <%# else %>
+          <%# indx = indx.to_i + 1 %>
+          <%# end %>
+          <%# end %>
         </div>
       </div>
     </div>
