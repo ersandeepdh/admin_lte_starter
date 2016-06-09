@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   #root 'welcome#index'
-  root 'welcome#site'
+  #root 'welcome#site'
+  root 'welcome#mechanize'
 
   get '/login' => 'welcome#login'
   get '/signup' => 'welcome#signup'

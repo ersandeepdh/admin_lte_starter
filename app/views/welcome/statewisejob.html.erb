@@ -1,16 +1,17 @@
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%#= @one_page_post['title=1'] %>
-<%# end %>
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%# end %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fill Govt Forms</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="resource-type" content="document" />
+    <meta http-equiv="content-type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="author" content="Ruby Mechanize" />
+    <meta name="contact" content="fillgovtforms@gmail.com" />
+    <meta name="description" content="Fill Govt Forms <%= @one_page_post["title=0"] %>" />
+    <% keywords = @one_page_post["title=0"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
+    <meta name="keywords" content="Fill, Govt, Forms, <%= keywords %>" />
+    <title>Fill Govt Forms | <%= @one_page_post["title=0"] %></title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -53,14 +54,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
               </button>
-              <a href="#" class="navbar-brand">Fill Govt Forms</a>
+              <a href="<%= root_url %>" class="navbar-brand">Fill Govt Forms</a>
             </div>
             <div id="myNavbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <!-- <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li> -->
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

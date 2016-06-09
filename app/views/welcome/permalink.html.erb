@@ -1,16 +1,17 @@
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%#= @one_page_post['title=1'] %>
-<%# end %>
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%# end %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Fill Govt Forms</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="resource-type" content="document" />
+    <meta http-equiv="content-type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="content-language" content="en-us" />
+    <meta name="author" content="Ruby Mechanize" />
+    <meta name="contact" content="fillgovtforms@gmail.com" />
+    <meta name="description" content="<%= @one_page_post["title"] %>" />    
+    <% keywords = @one_page_post["title"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
+    <meta name="keywords" content="<%= keywords %>" />
+    <title>Fill Govt Forms | <%= @one_page_post["title"] %></title>        
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -53,14 +54,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
               </button>
-              <a href="#" class="navbar-brand">Portfolio</a>
+              <a href="<%= root_url %>" class="navbar-brand">Fill Govt Forms</a>
             </div>
             <div id="myNavbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <!-- <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li> -->
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -69,22 +70,59 @@
           </div>
         </nav>
         <div class="col-sm-3 sidenav">
-          <h4>John's Blog</h4>
+          <h4><b>STATE WISE JOBS</b></h4>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#section1">Home</a></li>
+            <!-- <li class="active"><a href="#section1">Home</a></li>
             <li><a href="#section2">Friends</a></li>
             <li><a href="#section3">Family</a></li>
-            <li><a href="#section3">Photos</a></li>
+            <li><a href="#section3">Photos</a></li> -->
+            <!-- <li class="active"><a href="#section1">Andaman & Nicobar</a></li> -->
+            <li><a href="/states/andaman-nicobar/">Andaman & Nicobar</a></li>
+            <li><a href="/states/jobs-in-andhra-pradesh/">Andhra Pradesh</a></li>
+            <li><a href="/states/jobs-in-arunachal-pradesh/">Arunachal Pradesh</a></li>
+            <li><a href="/states/jobs-in-assam/">Assam</a></li>
+            <li><a href="/states/jobs-in-bihar/">Bihar</a></li>
+            <li><a href="/states/chandigarh/">Chandigarh</a></li>
+            <li><a href="/states/jobs-in-chhattisgarh/">Chhattisgarh</a></li>
+            <li><a href="/states/dadra-nagar-haveli/">Dadra & Nagar Haveli</a></li>
+            <li><a href="/states/daman-diu/">Daman & Diu</a></li>
+            <li><a href="/states/jobs-in-delhi/">Delhi</a></li>
+            <li><a href="/states/jobs-in-goa/">Goa</a></li>
+            <li><a href="/states/jobs-in-gujarat/">Gujarat</a></li>
+            <li><a href="/states/jobs-in-haryana/">Haryana</a></li>
+            <li><a href="/states/jobs-in-himachal-pradesh/">Himachal Pradesh</a></li>
+            <li><a href="/states/jobs-in-jammu-and-kashmir/">Jammu & Kashmir</a></li>
+            <li><a href="/states/jobs-in-jharkhand/">Jharkhand</a></li>
+            <li><a href="/states/jobs-in-karnataka/">Karnataka</a></li>
+            <li><a href="/states/jobs-in-kerala/">Kerala</a></li>
+            <li><a href="/states/lakshadweep/">Lakshadweep</a></li>
+            <li><a href="/states/jobs-in-mp-madhya-pradesh/">Madhya Pradesh</a></li>
+            <li><a href="/states/jobs-in-maharashtra/">Maharashtra</a></li>
+            <li><a href="/states/jobs-in-manipur/">Manipur</a></li>
+            <li><a href="/states/jobs-in-meghalaya/">Meghalaya</a></li>
+            <li><a href="/states/jobs-in-mizoram/">Mizoram</a></li>
+            <li><a href="/states/jobs-in-nagaland/">Nagaland</a></li>
+            <li><a href="/states/jobs-in-orissa/">Orissa</a></li>
+            <li><a href="/states/puducherry/">Puducherry</a></li>
+            <li><a href="/states/jobs-in-punjab/">Punjab</a></li>
+            <li><a href="/states/jobs-in-rajasthan/">Rajasthan</a></li>
+            <li><a href="/states/jobs-in-sikkim/">Sikkim</a></li>
+            <li><a href="/states/jobs-in-tamilnadu/">Tamil Nadu</a></li>
+            <li><a href="/states/telangana/">Telangana</a></li>
+            <li><a href="/states/jobs-in-tripura/">Tripura</a></li>
+            <li><a href="/states/jobs-in-uttar-pradesh/">Uttar Pradesh</a></li>
+            <li><a href="/states/jobs-in-uttarakhand/">Uttarakhand</a></li>
+            <li><a href="/states/jobs-in-west-bengal/">West Bengal</a></li>
           </ul>
           <br>
-          <div class="input-group">
+          <!-- <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Blog..">
             <span class="input-group-btn">
             <button class="btn btn-default" type="button">
             <span class="glyphicon glyphicon-search"></span>
             </button>
             </span>
-          </div>
+          </div> -->
         </div>
         <div class="col-sm-9 content_cls">
           <h4><small>LATEST GOVT JOBS</small></h4>
@@ -103,13 +141,11 @@
               <span class="label label-danger">Danger Label</span> -->
           </h5>
           <br>
-          <p><%#= @one_page_post["content=#{indx}"].gsub(" ...Read More", "") %> <%= @one_page_post["content"] %></p>
+          <p><%= @one_page_post["content"] %></p>          
           <br>
-          <%# indx = indx.to_i + 1 %>
-          <%# else %>
-          <%# indx = indx.to_i + 1 %>
-          <%# end %>
-          <%# end %>
+          <p><%= @one_page_post["link1"] %></p>
+          <br>
+          <p><%= @one_page_post["link2"] %></p>
         </div>
       </div>
     </div>

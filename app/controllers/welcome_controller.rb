@@ -29,15 +29,20 @@ class WelcomeController < ApplicationController
   def permalink
     permalink = params['permalink']
     require 'mechanize'
+    require 'nokogiri'
+    require 'open-uri'
 
     agent = Mechanize.new
     agent.user_agent_alias = 'Windows Mozilla'
-    page = agent.get("http://www.sarkarinaukrisarch.in/#{params['permalink']}/")    
+    page = agent.get("http://www.sarkarinaukrisarch.in/#{params['permalink']}/")
+    #page_nok = Nokogiri::HTML(open("http://www.sarkarinaukrisarch.in/#{params['permalink']}/"))     
 
     one_page_post = Hash.new
     
     one_page_post["title"] = page.at('.post-title').text.strip
-    one_page_post["content"] = page.at('.post-content').text.strip
+    one_page_post["content"] = one_page_post["title"]
+    one_page_post["link1"] = page.css('div .post-content li a')[2].text
+    one_page_post["link2"] = page.css('div .post-content li a')[3].text
 
     @one_page_post = one_page_post
 
