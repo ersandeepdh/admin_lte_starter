@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +8,35 @@
     <meta http-equiv="content-language" content="en-us" />
     <meta name="author" content="Ruby Mechanize" />
     <meta name="contact" content="fillgovtforms@gmail.com" />
-    <meta name="description" content="<%= @one_page_post["title"] %>" />    
+    <meta name="robots" content="index,follow">        
     <% keywords = @one_page_post["title"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
-    <meta name="keywords" content="fillgovtforms, fillgovtforms.com, fill, govt, jobs, forms, aniltimt, ersandeepdh, <%= keywords %>" />
-    <title>Fill Govt Forms | <%= @one_page_post["title"] %></title>        
+    <% title = @one_page_post["title"] %>
+    <title><%= title %></title>
+    <meta name="description" content="<%= @one_page_post["title"] %>" />
+    <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= keywords %>" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="<%= title %>">
+    <meta itemprop="description" content="<%= title %>">
+    <meta itemprop="image" content="http://ai-i2.infcdn.net/icons_siandroid/png/200/5645/5645026.png">
+
+    <!-- for Facebook -->          
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://ai-i2.infcdn.net/icons_siandroid/png/200/5645/5645026.png" />
+    <meta property="og:url" content="<%= request.url %>" />
+    <meta property="og:description" content="<%= title %>" />
+    <meta property="og:site_name" content="Latest Govt Jobs India" />
+    <meta property="fb:admins" content="Ruby Mechanize" /> 
+
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+    <meta name=”twitter:url” content="<%= request.url %>" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= title %>" />
+    <meta name="twitter:creator" content="@ersandeepdh">
+    <meta name="twitter:image" content="http://ai-i2.infcdn.net/icons_siandroid/png/200/5645/5645026.png" />
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

@@ -27,6 +27,8 @@ class WelcomeController < ApplicationController
   end
 
   def permalink
+    begin
+
     permalink = params['permalink']
     require 'mechanize'
     require 'nokogiri'
@@ -47,9 +49,15 @@ class WelcomeController < ApplicationController
     @one_page_post = one_page_post
 
     render :layout => false
+
+    rescue => error
+      redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
+    end
   end
 
   def statewisejob
+    begin
+
     permalink = params['permalink']
     require 'mechanize'
 
@@ -76,10 +84,16 @@ class WelcomeController < ApplicationController
     @one_page_post = one_page_post
 
     render :layout => false
+
+    rescue => error
+      redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
+    end
   end
 
   def mechanize
+    begin
     require 'mechanize'
+    @msg = 'error' if params['msg']
 
     agent = Mechanize.new
     agent.user_agent_alias = 'Windows Mozilla'
@@ -118,5 +132,9 @@ class WelcomeController < ApplicationController
     #@one_page_post = one_page_post.merge(sec_page_post)
 
     render :layout => false
+
+    rescue => error
+      redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
+    end
   end
 end
