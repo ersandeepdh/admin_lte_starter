@@ -11,7 +11,7 @@
     <meta name="robots" content="index,follow">        
     <% keywords = @one_page_post["title"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
     <% title = @one_page_post["title"] %>
-    <title><%= title %></title>
+    <title>Latest Govt Jobs, <%= title %></title>
     <meta name="description" content="<%= @one_page_post["title"] %>" />
     <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= keywords %>" />
 
@@ -150,7 +150,7 @@
           </div> -->
         </div>
         <div class="col-sm-9 content_cls">
-          <h4><small>LATEST GOVT JOBS</small></h4>
+          <h4><small style="color:#800080;">LATEST GOVT JOBS</small></h4>
           <hr>
           <%# indx = 0 %>
           <%# @one_page_post.each do |key,value| %>

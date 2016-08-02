@@ -16,9 +16,9 @@
       <% keywords = @one_page_post["title=1"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
       <% title = @one_page_post["title=1"] %>
     <% end %>
-    <title><%= title %></title>
-    <meta name="description" content="<%= title %>" />
-    <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= keywords %>" />
+    <title>Latest Govt Jobs, <%= @permalink.upcase %>, <%= title %></title>
+    <meta name="description" content="Latest Govt Jobs <%= @permalink.upcase %> <%= title %>" />
+    <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= @permalink %>, <%= keywords %>" />
 
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="<%= title %>">
@@ -41,7 +41,7 @@
     <meta name="twitter:description" content="<%= title %>" />
     <meta name="twitter:creator" content="@ersandeepdh">
     <meta name="twitter:image" content="http://ai-i2.infcdn.net/icons_siandroid/png/200/5645/5645026.png" />
-    
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -151,7 +151,7 @@
           </ul>          
         </div>
         <div class="col-sm-9 content_cls">
-          <h4><small><b>LATEST GOVT JOBS</b></small></h4>
+          <h4><small><b style="color:#800080;">LATEST GOVT JOBS | <%= @permalink.upcase %></b></small></h4>
           <hr>
           <% indx = 0 %>
           <% @one_page_post.each do |key,value| %>

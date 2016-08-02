@@ -23,7 +23,7 @@
       <% keywords = @one_page_post["title=1"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
       <% title = @one_page_post["title=1"] %>
     <% end %>
-    <title><%= title %></title>
+    <title>Latest Govt Jobs, <%= title %></title>
     <meta name="description" content="<%= title %>" />
     <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= keywords %>" />
 
@@ -160,7 +160,7 @@
           </ul>          
         </div>
         <div class="col-sm-9 content_cls">
-          <h4><small><b>LATEST GOVT JOBS
+          <h4><small><b style="color:#800080;">LATEST GOVT JOBS
           <% if @msg == 'error' %>
             <span style="color:red;"> We're sorry, but something went wrong.</span> 
           <% end %>  

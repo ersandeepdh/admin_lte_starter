@@ -51,6 +51,7 @@ class WelcomeController < ApplicationController
     render :layout => false
 
     rescue => error
+      logger.warn "Internal server error: #{error}"
       redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
     end
   end
@@ -59,6 +60,7 @@ class WelcomeController < ApplicationController
     begin
 
     permalink = params['permalink']
+    @permalink = params['permalink']
     require 'mechanize'
 
     agent = Mechanize.new
@@ -86,6 +88,7 @@ class WelcomeController < ApplicationController
     render :layout => false
 
     rescue => error
+      logger.warn "Internal server error: #{error}"
       redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
     end
   end
@@ -134,7 +137,8 @@ class WelcomeController < ApplicationController
     render :layout => false
 
     rescue => error
-      redirect_to controller: 'welcome', action: 'mechanize', msg: 'error'
+      logger.warn "Internal server error: #{error}"
+      redirect_to controller: 'welcome', action: 'statewisejob', permalink: 'jobs-in-delhi'
     end
   end
 end
