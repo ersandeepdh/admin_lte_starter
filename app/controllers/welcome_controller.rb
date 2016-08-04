@@ -44,8 +44,21 @@ class WelcomeController < ApplicationController
     
     one_page_post["title"] = page.at('.post-title').text.strip
     one_page_post["content"] = one_page_post["title"]
-    one_page_post["link1"] = page.css('div .post-content li a')[2].text
-    one_page_post["link2"] = page.css('div .post-content li a')[3].text
+    @content = page.css('div .post-content p').text.to_s
+    #one_page_post["link1"] = page.css('div .post-content li a')[2].text
+    #one_page_post["link2"] = page.css('div .post-content li a')[3].text
+    
+    total_size_link = page.css('div .post-content li a').size
+
+    @total_link = Array.new
+    total_size_link.times do |i|
+      str = page.css('div .post-content li a')[i].to_s
+      if !str.include? '#'
+        if !str.include? 'sarkarinaukrisarch'
+          @total_link[i] = page.css('div .post-content li a')[i].text
+        end  
+      end 
+    end    
 
     @one_page_post = one_page_post
 

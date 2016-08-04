@@ -43,8 +43,9 @@
 
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
-    <meta name=”twitter:url” content="<%= request.url %>" />
+    <meta name="twitter:url" content="<%= request.url %>" />
     <meta name="twitter:title" content="<%= title %>" />
+    <%#= truncate(title, :length => 25, :omission => '..') %>
     <meta name="twitter:description" content="<%= title %>" />
     <meta name="twitter:creator" content="@ersandeepdh">
     <meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/17088216?v=3&s=200" />
@@ -93,7 +94,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
               </button>
-              <a href="<%= root_url %>" class="navbar-brand">Fill Govt Forms</a>
+              <a href="<%= root_url %>" class="navbar-brand">Latest Govt Jobs</a>
             </div>
             <div id="myNavbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
@@ -194,7 +195,7 @@
     </div>
     </div>
     <footer class="container-fluid">
-      <p class="text-center">@Fill Govt Forms</p>
+      <p class="text-center">@Latest Govt Jobs</p>
       <script>
         //$('document').ready(function() {
           //$('.sidenav').css({'height': $('.content_cls').innerHeight()});
