@@ -28,6 +28,7 @@ class WelcomeController < ApplicationController
 
   def permalink
     begin
+    Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)
 
     permalink = params['permalink']
     require 'mechanize'
@@ -58,6 +59,7 @@ class WelcomeController < ApplicationController
 
   def statewisejob
     begin
+    Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)  
 
     permalink = params['permalink']
     @permalink = params['permalink']
@@ -95,6 +97,7 @@ class WelcomeController < ApplicationController
 
   def mechanize
     begin
+    Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)
     require 'mechanize'
     @msg = 'error' if params['msg']
 
