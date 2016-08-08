@@ -31,6 +31,23 @@ class WelcomeController < ApplicationController
     Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)
 
     permalink = params['permalink']
+    @job_post = JobPost.find_by_permalink(permalink)
+    if @job_post
+
+      @one_page_post  = Hash.new
+      @one_page_post["title"] = @job_post.title
+      @one_page_post["content"] = @job_post.title
+      @content = @job_post.content
+
+      @total_link = Array.new
+      @job_post.post_links.each_with_index do |link,i|
+        @total_link[i] = link.link_text
+      end
+      #@job_post.view_count =+1
+      @job_post.update(view_count: @job_post.view_count+1) 
+
+    else
+
     require 'mechanize'
     require 'nokogiri'
     require 'open-uri'
@@ -42,9 +59,11 @@ class WelcomeController < ApplicationController
 
     one_page_post = Hash.new
     
+    
     one_page_post["title"] = page.at('.post-title').text.strip
     one_page_post["content"] = one_page_post["title"]
     @content = page.css('div .post-content p').text.to_s
+    @job_post = JobPost.create(:permalink => permalink, :title => one_page_post["title"], :content => @content, :view_count => 1)
     #one_page_post["link1"] = page.css('div .post-content li a')[2].text
     #one_page_post["link2"] = page.css('div .post-content li a')[3].text
     
@@ -56,11 +75,13 @@ class WelcomeController < ApplicationController
       if !str.include? '#'
         if !str.include? 'sarkarinaukrisarch'
           @total_link[i] = page.css('div .post-content li a')[i].text
+          PostLink.create(:link_text => @total_link[i], :job_post_id => @job_post.id)
         end  
       end 
     end    
 
     @one_page_post = one_page_post
+    end
 
     render :layout => false
 
