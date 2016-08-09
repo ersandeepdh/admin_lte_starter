@@ -42,8 +42,7 @@ class WelcomeController < ApplicationController
       @total_link = Array.new
       @job_post.post_links.each_with_index do |link,i|
         @total_link[i] = link.link_text
-      end
-      #@job_post.view_count =+1
+      end      
       @job_post.update(view_count: @job_post.view_count+1) 
 
     else
