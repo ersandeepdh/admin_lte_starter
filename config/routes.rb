@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   #root 'welcome#index'
-  root 'welcome#site'
-  #root 'welcome#mechanize'
+  #root 'welcome#site'
+  root 'welcome#mechanize'
 
   get '/login' => 'welcome#login'
   get '/signup' => 'welcome#signup'
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/send-message' => 'welcome#message'
   get '/latest-govt-jobs/:permalink' => 'welcome#permalink'
   get '/states/:permalink' => 'welcome#statewisejob'
+  get '/qualification/:permalink' => 'welcome#qualification'
+  get '/govt-jobs/:permalink' => 'welcome#govt_jobs'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

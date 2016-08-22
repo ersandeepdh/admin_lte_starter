@@ -1,10 +1,3 @@
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%#= @one_page_post['title=1'] %>
-<%# end %>
-<%# @one_page_post.each do |key, value| %>  
-<%#= key.to_s + ' : ' + value %>
-<%# end %>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
   <head>
@@ -14,8 +7,8 @@
     <meta http-equiv="content-type" content="text/html; charset=US-ASCII" />
     <meta http-equiv="content-language" content="en-us" />
     <meta name="author" content="Ruby Mechanize" />
+    <meta name="contact" content="fillgovtforms@gmail.com" />
     <meta name="robots" content="index,follow">
-    <meta name="contact" content="fillgovtforms@gmail.com" />    
     <% if @one_page_post["title=0"] %>
       <% keywords = @one_page_post["title=0"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
       <% title = @one_page_post["title=0"] %>
@@ -23,14 +16,14 @@
       <% keywords = @one_page_post["title=1"].gsub(/[^a-zA-Z]/, ',').gsub(/,/, ' ').gsub(/\s+/, ', ') %>
       <% title = @one_page_post["title=1"] %>
     <% end %>
-    <title>Latest Govt Jobs, <%= title %></title>
-    <meta name="description" content="<%= title %>" />
-    <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= keywords %>" />
+    <title>Latest Govt Jobs, <%= @permalink.upcase %>, <%= title %></title>
+    <meta name="description" content="Latest Govt Jobs <%= @permalink.upcase %> <%= title %>" />
+    <meta name="keywords" content="latest govt jobs, govt jobs 2016, india govt jobs, delhi govt jobs, govt bank jobs, government jobs, <%= @permalink %>, <%= keywords %>" />
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="<%= title %>" />
-    <meta itemprop="description" content="<%= title %>" />
-    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/15667394?v=3&s=200" />
+    <meta itemprop="name" content="<%= title %>">
+    <meta itemprop="description" content="<%= title %>">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/15667394?v=3&s=200">
 
     <!-- for Facebook -->          
     <meta property="og:title" content="<%= title %>" />
@@ -43,11 +36,10 @@
 
     <!-- for Twitter -->          
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="<%= request.url %>" />
+    <meta name=”twitter:url” content="<%= request.url %>" />
     <meta name="twitter:title" content="<%= title %>" />
-    <%#= truncate(title, :length => 25, :omission => '..') %>
     <meta name="twitter:description" content="<%= title %>" />
-    <meta name="twitter:creator" content="@rithmverma" />
+    <meta name="twitter:creator" content="@rithmverma">
     <meta name="twitter:image" content="https://avatars0.githubusercontent.com/u/15667394?v=3&s=200" />
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -63,7 +55,7 @@
       /* Set gray background color and 100% height */
       .sidenav {
       background-color: #f1f1f1;
-      height: 135%;
+      height: 149%;
       }
       /* Set black background color, white text and some padding */
       footer {
@@ -96,7 +88,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
               </button>
-              <a href="<%= root_url %>" class="navbar-brand active">Latest Govt Jobs</a>
+              <a href="<%= root_url %>" class="navbar-brand">Latest Govt Jobs</a>
             </div>
             <div id="myNavbar" class="collapse navbar-collapse">
               <%= render :partial => 'welcome/navbar' %>
@@ -119,22 +111,18 @@
           </ul>          
         </div>
         <div class="col-sm-9 content_cls">
-          <h4><small><b style="color:#800080;">LATEST GOVT JOBS
-          <% if @msg == 'error' %>
-            <span style="color:red;"> We're sorry, but something went wrong.</span> 
-          <% end %>  
-          </b></small></h4>
+          <h4><small><b style="color:#800080;">LATEST GOVT JOBS | <%= @permalink.upcase %></b></small></h4>
           <hr>
           <% indx = 0 %>
           <% @one_page_post.each do |key,value| %>
           <% if !@one_page_post["title=#{indx}"].nil? %>
           <h4><a href="/latest-govt-jobs/<%=@one_page_post["permalink=#{indx}"]%>"><%= @one_page_post["title=#{indx}"] %></a></h4>
-          <h5>          
+          <h5>
             <span class="label label-warning">LATEST</span>
             <span class="label label-success">GOVERNMENT</span>
             <span class="label label-info">JOBS</span>
-            <!-- <span class="label label-default">Default Label</span> -->
-            <!-- <span class="label label-primary">Primary Label</span>
+            <!-- <span class="label label-default">Default Label</span>
+              <span class="label label-primary">Primary Label</span>
               <span class="label label-danger">Danger Label</span> -->
             <span class="glyphicon glyphicon-time"></span> Post by Mechanize, <%= @one_page_post["time=#{indx}"].squish %>  
           </h5>
