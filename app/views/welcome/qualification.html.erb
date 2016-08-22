@@ -116,7 +116,7 @@
           <% indx = 0 %>
           <% @one_page_post.each do |key,value| %>
           <% if !@one_page_post["title=#{indx}"].nil? %>
-          <h4><a href="/latest-govt-jobs/<%=@one_page_post["permalink=#{indx}"]%>"><%= @one_page_post["title=#{indx}"] %></a></h4>
+          <h4><a href="/latest-govt-jobs/<%=@one_page_post["permalink=#{indx}"]%>" target="_blank"><%= @one_page_post["title=#{indx}"] %></a></h4>
           <h5>
             <span class="label label-warning">LATEST</span>
             <span class="label label-success">GOVERNMENT</span>
