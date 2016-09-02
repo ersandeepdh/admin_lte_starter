@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/signup' => 'welcome#signup'
   get '/mechanize' => 'welcome#mechanize'
   post '/send-message' => 'welcome#message'
+  get '/latest-govt-jobs/:permalink/:timestamp' => 'welcome#permalink'
   get '/latest-govt-jobs/:permalink' => 'welcome#permalink'
   get '/states/:permalink' => 'welcome#statewisejob'
   get '/qualification/:permalink' => 'welcome#qualification'
