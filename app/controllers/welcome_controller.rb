@@ -3,11 +3,11 @@ class WelcomeController < ApplicationController
   end
 
   def login
-  	render :layout => false
+    render :layout => false
   end
 
   def signup
-  	render :layout => false
+    render :layout => false
   end
 
   def site
@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
       Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)
     end
     @msg = 'done' if params['msg']    
-  	render :layout => false
+    render :layout => false
   end
 
   def message
@@ -107,7 +107,15 @@ class WelcomeController < ApplicationController
     Request.create(:params_txt => params.inspect, :utm_ip => request.remote_ip)
 
     permalink = params['permalink']
-    @job_post = JobPost.find_by_permalink(permalink)
+    if params[:timestamp]
+      #timestamp = DateTime.strptime(params[:timestamp],'%s')
+      timestamp = params[:timestamp]
+      @job_post_stmp = JobPost.where("permalink = ? AND timestamp = ?", permalink, timestamp).first
+    else  
+      #@job_post = JobPost.find_by_permalink(permalink)
+      @job_post = JobPost.where("permalink = ? AND timestamp IS NULL", permalink).first
+    end
+
     if @job_post
 
       @one_page_post  = Hash.new
@@ -120,6 +128,20 @@ class WelcomeController < ApplicationController
         @total_link[i] = link.link_text
       end      
       @job_post.update(view_count: @job_post.view_count+1) 
+
+    elsif @job_post_stmp
+
+      @job_post = @job_post_stmp
+      @one_page_post  = Hash.new
+      @one_page_post["title"] = @job_post.title
+      @one_page_post["content"] = @job_post.title
+      @content = @job_post.content
+
+      @total_link = Array.new
+      @job_post.post_links.each_with_index do |link,i|
+        @total_link[i] = link.link_text
+      end      
+      @job_post.update(view_count: @job_post.view_count+1)
 
     else
 
@@ -138,7 +160,11 @@ class WelcomeController < ApplicationController
     one_page_post["title"] = page.at('.post-title').text.strip
     one_page_post["content"] = one_page_post["title"]
     @content = page.css('div .post-content p').text.to_s
-    @job_post = JobPost.create(:permalink => permalink, :title => one_page_post["title"], :content => @content, :view_count => 1)
+    if timestamp
+      @job_post = JobPost.create(:permalink => permalink, :title => one_page_post["title"], :content => @content, :timestamp => timestamp, :view_count => 1)
+    else
+      @job_post = JobPost.create(:permalink => permalink, :title => one_page_post["title"], :content => @content, :view_count => 1)
+    end
     #one_page_post["link1"] = page.css('div .post-content li a')[2].text
     #one_page_post["link2"] = page.css('div .post-content li a')[3].text
     
