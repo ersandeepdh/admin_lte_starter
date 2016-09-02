@@ -125,7 +125,7 @@
             <!-- <span class="label label-default">Default Label</span>
               <span class="label label-primary">Primary Label</span>
               <span class="label label-danger">Danger Label</span> -->
-            <span class="glyphicon glyphicon-time"></span> Post by Mechanize, <%= @one_page_post["time=#{indx}"].squish %>  
+            <span class="glyphicon glyphicon-time"></span> Post by Mechanize, <%= post_time %>  
           </h5>
           <br>
           <p><%= @one_page_post["content=#{indx}"].gsub(" ...Read More", "") %>, <%= @one_page_post["title=#{indx}"] %></p>
