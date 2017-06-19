@@ -35,7 +35,7 @@ class WelcomeController < ApplicationController
     require 'mechanize'
 
     agent = Mechanize.new
-    agent.user_agent_alias = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0'
+    agent.user_agent_alias = 'Windows Mozilla'
     page = agent.get("http://www.sarkarinaukridaily.in/govt-jobs/#{params['permalink']}")    
 
     one_page_post = Hash.new
@@ -73,7 +73,7 @@ class WelcomeController < ApplicationController
     require 'mechanize'
 
     agent = Mechanize.new
-    agent.user_agent_alias = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0'
+    agent.user_agent_alias = 'Windows Mozilla'
     page = agent.get("http://www.sarkarinaukridaily.in/qualification/#{params['permalink']}")    
 
     one_page_post = Hash.new
@@ -150,7 +150,7 @@ class WelcomeController < ApplicationController
     require 'open-uri'
 
     agent = Mechanize.new
-    agent.user_agent_alias = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0'
+    agent.user_agent_alias = 'Windows Mozilla'
     page = agent.get("http://www.sarkarinaukridaily.in/#{params['permalink']}/")
     #page_nok = Nokogiri::HTML(open("http://www.sarkarinaukrisarch.in/#{params['permalink']}/"))     
 
@@ -201,7 +201,7 @@ class WelcomeController < ApplicationController
     require 'mechanize'
 
     agent = Mechanize.new
-    agent.user_agent_alias = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0'
+    agent.user_agent_alias = 'Windows Mozilla'
     page = agent.get("http://www.sarkarinaukridaily.in/states/#{params['permalink']}")    
 
     one_page_post = Hash.new
@@ -237,7 +237,7 @@ class WelcomeController < ApplicationController
     @msg = 'error' if params['msg']
 
     agent = Mechanize.new
-    agent.user_agent_alias = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0'
+    agent.user_agent_alias = 'Windows Mozilla'
     page = agent.get('http://www.sarkarinaukridaily.in')    
 
     one_page_post = Hash.new
